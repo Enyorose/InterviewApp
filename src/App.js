@@ -7,8 +7,8 @@ function App() {
   const baseURL = "http://localhost:7071";
   const [images, setImages] = useState([]);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  //working concept
-  const [meta, setMeta] = useState([]);
+  //working concept trying to store the meta data in a new state to try to not conflict with the images
+  // const [meta, setMeta] = useState([]);
 
   //TODO: API functions (more to be added) should be in their own file!
   const getEvents = () => {
@@ -16,8 +16,8 @@ function App() {
       .get(`${baseURL}/events`)
       .then(function (response) {
         setImages(response.data.scanResults);
-        // working concept
-        setMeta(response.data.scanResults.detectionsList)
+        // working concept: May need to create a separate function to store meta data in order to display data.
+        // setMeta(response.data.scanResults.detectionsList)
         console.log(response);
       })
       .catch(function (error) {
@@ -29,6 +29,14 @@ function App() {
   useEffect(() => {
     getEvents();
   }, []);
+
+  // Working Concept: can get function to current array length but not able to increase array to show next photo.
+  // Using this youtube as a reference, https://www.youtube.com/watch?v=l1MYfu5YWHc
+  // const length = setImages.length
+  // const nextImage = () => {
+  //   setCurrentImageIndex(currentImageIndex === length - 1 ? 0 : currentImageIndex + 1)
+  // }
+  // console.log(currentImageIndex)
 
   return (
     //TODO: This code should be factored out into multiple files
@@ -70,11 +78,14 @@ function App() {
             <div> Scan Timestamp: {images[currentImageIndex].createdOn} </div>
           )}
           {/* TODO: Finish adding image metadata!  */}
-          {/* Working Concept <div> Image Metadata: {meta.uuid}</div> */}
+          {/* Working Concept: trying to out put the data for MetaData but the sate is undefined see possible conclusion in fetch function  
+          <div> Image Metadata: {meta.uuid}</div> */}
           <div> Image Metadata: Display photo meta data</div>
           <div> Number of Detections: INCOMPLETE </div>
         </div>
         {/* TODO: This button also does nothing  */}
+        {/* working concept: Hoping to get a counter function to fire upon click. 
+        <button onClick={nextImage} type="button">Next Image</button> */}
         <button type="button">Next Image</button>
       </div>
     </div>
