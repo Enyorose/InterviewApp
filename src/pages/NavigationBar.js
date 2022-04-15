@@ -6,6 +6,7 @@ import {
   Link
 } from "react-router-dom";
 function NavigationBar() {
+  // TODO: create breakpoints to make text more reactive
   const navItem = {
     color: "white",
     marginTop: "10%",
@@ -22,6 +23,7 @@ function NavigationBar() {
     >
       <img style={{ width: "95%" }} src={KuvaLogo} />
       <div style={{ display: "flex", flexDirection: "column" }}>
+        {/* TODO:see if there is a way to further optimize by collecting newly created pages and dynamically create a clickable route */}
         <Router>
           <Link to="/" style={navItem}> Home </Link>
           <Link to="/" style={navItem}> Active Events </Link>
