@@ -1,8 +1,6 @@
 import KuvaLogo from "../media/KuvaLogo.png";
 import {
   BrowserRouter as Router,
-  Switch,
-  Route,
   Link
 } from "react-router-dom";
 function NavigationBar() {
@@ -12,6 +10,7 @@ function NavigationBar() {
     marginTop: "10%",
     textDecoration: "none"
   }
+  // TODO: write code to make this a hamburger Nav or maybe collapsable to allow for more screen space.
   const navContainer = {
     height: "100%",
     width: "15%",

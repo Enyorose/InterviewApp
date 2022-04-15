@@ -7,6 +7,8 @@ function App() {
   const baseURL = "http://localhost:7071";
   const [images, setImages] = useState([]);
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  //working concept
+  const [meta, setMeta] = useState([]);
 
   //TODO: API functions (more to be added) should be in their own file!
   const getEvents = () => {
@@ -14,6 +16,8 @@ function App() {
       .get(`${baseURL}/events`)
       .then(function (response) {
         setImages(response.data.scanResults);
+        // working concept
+        setMeta(response.data.scanResults.detectionsList)
         console.log(response);
       })
       .catch(function (error) {
@@ -66,7 +70,8 @@ function App() {
             <div> Scan Timestamp: {images[currentImageIndex].createdOn} </div>
           )}
           {/* TODO: Finish adding image metadata!  */}
-          <div> Image Metadata: {images.length} </div>
+          {/* Working Concept <div> Image Metadata: {meta.uuid}</div> */}
+          <div> Image Metadata: Display photo meta data</div>
           <div> Number of Detections: INCOMPLETE </div>
         </div>
         {/* TODO: This button also does nothing  */}
