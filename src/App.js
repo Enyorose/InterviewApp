@@ -66,7 +66,7 @@ function App() {
             <div> Scan Timestamp: {images[currentImageIndex].createdOn} </div>
           )}
           {/* TODO: Finish adding image metadata!  */}
-          <div> Image Metadata: INCOMPLETE </div>
+          <div> Image Metadata: {images.length} </div>
           <div> Number of Detections: INCOMPLETE </div>
         </div>
         {/* TODO: This button also does nothing  */}

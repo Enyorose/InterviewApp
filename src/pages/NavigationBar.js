@@ -1,16 +1,25 @@
 import KuvaLogo from "../media/KuvaLogo.png";
 
 function NavigationBar() {
+  const navItem = {
+    color: "white",
+    marginTop: "10%",
+  }
+  const navContainer = {
+    height: "100%",
+    width: "15%",
+    backgroundColor: "#222222",
+  }
   return (
     <div
-      style={{
-        height: "100%",
-        width: "15%",
-        backgroundColor: "#222222",
-      }}
+      style={navContainer}
     >
       <img style={{ width: "95%" }} src={KuvaLogo} />
-      <span style={{ marginTop: "30%", color: "white" }}> Home </span>
+      <div style={{ display: "flex", flexDirection: "column" }}>
+        <span style={navItem}> Home </span>
+        <span style={navItem}> Active Events </span>
+        <span style={navItem}> Monitored Events </span>
+      </div>
     </div>
   );
 }
