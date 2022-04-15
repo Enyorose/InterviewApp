@@ -1,9 +1,15 @@
 import KuvaLogo from "../media/KuvaLogo.png";
-
+import {
+  BrowserRouter as Router,
+  Switch,
+  Route,
+  Link
+} from "react-router-dom";
 function NavigationBar() {
   const navItem = {
     color: "white",
     marginTop: "10%",
+    textDecoration: "none"
   }
   const navContainer = {
     height: "100%",
@@ -16,9 +22,11 @@ function NavigationBar() {
     >
       <img style={{ width: "95%" }} src={KuvaLogo} />
       <div style={{ display: "flex", flexDirection: "column" }}>
-        <span style={navItem}> Home </span>
-        <span style={navItem}> Active Events </span>
-        <span style={navItem}> Monitored Events </span>
+        <Router>
+          <Link to="/" style={navItem}> Home </Link>
+          <Link to="/" style={navItem}> Active Events </Link>
+          <Link to="/" style={navItem}> Monitored Events </Link>
+        </Router>
       </div>
     </div>
   );
